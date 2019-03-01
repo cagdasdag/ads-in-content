@@ -1,0 +1,178 @@
+/*====================================
+=            Admin Styles            =
+====================================*/
+.aic_field{
+  margin-top:10px;
+}
+
+.aic_field_title{
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #254b62;
+  color: #FFF;
+  border-left: 3px solid #009688;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.aic_field_title h3{
+  color: #FFF;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: .5em 0;
+}
+
+.aic_field_title:after {
+  position: relative;
+  transform: translate(-200%,35%);
+  content: '\002B';
+  font-size: 25px;
+}
+
+.aic_field_title.active:after{
+  content: "\2212"!important;
+}
+
+.aic_field_body{
+  display:none;
+}
+
+.aic_wrapper{
+  margin:0 !important;
+}
+
+.delete_ad {
+  margin-left: 20px !important;
+  background: darkred !important;
+  color: white !important;
+  width: 100px;
+  text-align: center;
+  margin-top: 10px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  font-weight: 500;
+  font-size: 13px !important;
+}
+
+/**
+  Header Styles
+ */
+
+.aic_header {
+  height: 96px;
+  position: relative;
+  background-color: #546E7A;
+  color: #FFF;
+  display: flex;
+  justify-content: space-between;
+}
+
+.aic_header_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #37474F;
+  width: 20%
+}
+
+.aic_header_logo,.aic_header_title{
+  color: #FFF;
+  margin:0;
+}
+
+.aic_header_right {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0 30px
+}
+
+.aic_header_logo {
+  font-size: 25px
+}
+
+.aic_header_title {
+  font-size: 1.3em;
+  margin-top:10px;
+}
+
+.aic_header_save {
+  margin-left: auto;
+  margin-right: auto
+}
+
+.aic_header_saveButton {
+  background-color: #009688 !important;
+  padding: 10px 20px !important;
+  border: 2px solid #009688 !important;
+  font-size: 12px;
+  font-weight: 400;
+  color: #FFF !important;
+  position: relative;
+  cursor: pointer;
+  box-shadow: none !important;
+  line-height: unset !important;
+  height: unset !important;
+}
+
+.aic_header_saveButton:hover {
+  background-color: #113c4a;
+  border-color: #009688
+}
+
+/**
+  Add New Button
+ */
+.aic_new_add{
+  background-color: #009688;
+  color: #FFF;
+  width: calc(100% - 40px);
+  display: block;
+  text-decoration: none;
+  padding: 20px;
+  font-size: 17px;
+  line-height: 1.5;
+  margin: .5em 0;
+  text-align: center;
+}
+
+.aic_new_add:after {
+  transform: translate(-200%,35%);
+  content: '\002B';
+  font-size: 21px;
+  margin-left:20px;
+}
+
+.aic_new_add:hover{
+  color:#263238;
+}
+
+.aic_field_body > div {
+  display:flex;
+  flex-direction:column;
+}
+
+.aic_field_body > div > span{
+  font-weight:500;
+  margin: 10px 0;
+  padding-left:20px;
+  font-size:17px;
+}
+
+.aic_field_body > div > input{
+  margin-left:20px;
+  width:50%;
+  height:40px;
+  color:grey;
+  border-radius: 2px;
+}
+
+.aic_field_body > div > textarea{
+  margin-left:20px;
+  width:50%;
+  color:grey;
+  border-radius: 2px;
+}
