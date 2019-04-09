@@ -101,14 +101,19 @@ class Admin
         </style>
         <div id="aic-adblock-notice" class="notice notice-error">
             <h2>Ads In Content</h2>
-            <p>It seems like your AdBlocker is conflicting with the plugin. Please add your domain to whitelist or close AdBlocker.</p>
+            <p>It seems like your AdBlocker is conflicting with the plugin. Or you may be getting this error because of Gutenberg is not active in your website. </p>
+            <p>Please make sure that Gutenberg is active and that the AdBlocker is closed.</p>
         </div>
         <?php
     }
 
     public function aic_assets()
     {
-        wp_enqueue_script($this->plugin_slug . '-adblocker-removal', plugin_dir_url(__FILE__) . 'js/aic-adblocker-removal.js', ['jquery'], $this->version, true);
+        if( function_exists( 'is_gutenberg_page' ) && is_gutenberg_page() ) { 
+            if ( function_exists( 'register_block_type' ) ) {
+                wp_enqueue_script($this->plugin_slug . '-adblocker-removal', plugin_dir_url(__FILE__) . 'js/aic-adblocker-removal.js', ['jquery'], $this->version, true);
+            }
+        }
     }
 
     public function aic_register_settings()
@@ -144,10 +149,12 @@ class Admin
             array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components')
         );
 
-        register_block_type('aic/block', array(
-            'editor_script' => 'ads-in-content-block',
-            'render_callback' => [$this, 'aic_render_block']
-        ));
+        if ( function_exists( 'register_block_type' ) ) {
+            register_block_type('aic/block', array(
+                'editor_script' => 'ads-in-content-block',
+                'render_callback' => [$this, 'aic_render_block']
+            ));
+        }
 
         wp_localize_script('ads-in-content-block', 'ad_list', $this->settings);
     }
